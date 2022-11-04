@@ -153,7 +153,7 @@ public class Member {
                 }
             }
             print("=====Proposal result=====\n>>> Proposal(" + id + ")  \n>>> " + lastValue
-                    + " elected;\n>>> prepare round : "
+                    + " elected;\n>>> round : "
                     + round);
             return lastValue;
         }
@@ -190,7 +190,7 @@ public class Member {
             print(result + " from " + result.from);
             return result;
         } catch (SocketTimeoutException e) {
-            print("[ERROR] Receive Timeout");
+            print("[ERROR] Message Sent But Received Timeout");
             return null;
         } catch (Exception e) {
             print("[ERROR] NetWork ERROR");
@@ -304,7 +304,8 @@ public class Member {
     // Simulation of network latency
     private void delay() throws InterruptedException {
         if(lag>0){
-        Thread.sleep(lag);}
+            Thread.sleep(lag);
+        }
     }
 
     // Simulate network packet loss
